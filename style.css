@@ -1,4 +1,3 @@
-/* Reset & global */
 * {
   margin: 0;
   padding: 0;
@@ -6,121 +5,278 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
   color: #333;
-  padding: 20px;
+  background-color: #f8f9fa;
 }
 
-/* Header */
 header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
   text-align: center;
-  padding: 40px 20px;
-  background-color: #fff;
-  border-bottom: 2px solid #ddd;
+  padding: 2rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 header h1 {
   font-size: 2.5rem;
-  color: #222;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 header p {
   font-size: 1.2rem;
-  color: #555;
-  margin: 10px 0;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
 }
 
 nav {
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 nav a {
-  margin: 0 15px;
+  color: white;
   text-decoration: none;
-  color: #0077cc;
   font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.1);
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
 }
 
-/* Sections */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 section {
-  padding: 40px 0;
-  max-width: 900px;
-  margin: auto;
+  margin-bottom: 4rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 30px;
   font-size: 2rem;
-  color: #222;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+  position: relative;
 }
 
-p, li {
-  font-size: 1rem;
-  color: #444;
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 2px;
 }
 
-/* Portfolio Gallery */
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #555;
+  border-left: 4px solid #667eea;
+  padding-left: 1rem;
+}
+
+.portfolio-category {
+  margin-bottom: 3rem;
+}
+
+/* --- PERUBAHAN UTAMA UNTUK GALERI PORTOFOLIO --- */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  display: flex; /* Diubah dari Grid ke Flexbox */
+  flex-wrap: wrap; /* Izinkan item pindah ke baris baru */
+  justify-content: center; /* Meratakan semua item ke tengah */
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.gallery .item {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.2s;
+.item {
+  text-align: center;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  /* Menentukan ukuran item dalam konteks Flexbox */
+  flex: 1 1 300px; /* flex-grow, flex-shrink, flex-basis */
+  max-width: 380px; /* Batas lebar maksimum agar tidak terlalu besar */
+  
+  /* Menambahkan ini agar semua kartu punya tinggi yang sama */
+  display: flex;
+  flex-direction: column;
 }
 
-.gallery .item:hover {
-  transform: scale(1.02);
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.gallery img {
+.item img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 220px;
+  /* KUNCI UTAMA: Menampilkan gambar utuh tanpa memotong */
+  object-fit: contain; 
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #ffffff; /* Latar belakang untuk area kosong gambar */
 }
 
-.gallery p {
-  padding: 10px;
+/* Menghapus efek hover khusus pada gambar agar lebih bersih */
+.item img:hover {
+  transform: scale(1);
+}
+
+.item p {
+  font-weight: 500;
+  color: #555;
+  margin-top: auto; /* Mendorong teks ke bawah agar rata */
+}
+/* --- AKHIR PERUBAHAN GALERI --- */
+
+
+.video-container {
   text-align: center;
-  font-size: 0.95rem;
+  margin: 2rem 0;
 }
 
-/* Services */
-ul {
-  list-style-type: disc;
-  padding-left: 40px;
+.video-container iframe {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Contact */
-#contact p, #contact a {
+#about p {
+  font-size: 1.1rem;
   text-align: center;
-  display: block;
-  margin-bottom: 10px;
-  color: #0077cc;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-#contact a:hover {
-  text-decoration: underline;
+#services ul {
+  list-style: none;
+  margin-top: 2rem;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
-/* Footer */
+#services li {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  flex-basis: 250px;
+  flex-grow: 1;
+  max-width: 300px;
+}
+
+#services li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+#contact {
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact-link a:hover {
+  color: #764ba2;
+}
+
+.contact-link i {
+  margin-right: 0.75rem;
+  font-size: 1.3rem;
+}
+
 footer {
+  background: #333;
+  color: white;
   text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid #ddd;
-  margin-top: 40px;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  nav {
+    gap: 1rem;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+  
+  .video-container iframe {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* Custom Lightbox Styles */
+.lightbox .lb-nav a.lb-prev,
+.lightbox .lb-nav a.lb-next {
+  background: rgba(0,0,0,0.6) !important;
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.lightbox .lb-nav a.lb-prev:hover,
+.lightbox .lb-nav a.lb-next:hover {
+  background: rgba(0,0,0,0.8) !important;
 }
