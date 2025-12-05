@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deskriz | Portfolio</title>
-    <meta name="description" content="Portfolio Deska Rizki - Freelance Graphic Designer & Academic Writer">
+    <meta name="description" content="Portfolio Deska Rizki - Chemical Engineer & Graphic Designer">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,14 +102,14 @@
             100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
         }
 
-        /* 3. Header & Navigation (REVISED) */
+        /* 3. Header & Navigation */
         #main-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 1.5rem 5%; /* Padding sedikit diperbesar */
+            padding: 1.5rem 5%;
             transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
         }
 
@@ -128,16 +128,15 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 0.5rem; /* Jarak diperkecil */
+            margin: 0 0.5rem;
             font-weight: 500;
             position: relative;
-            padding: 0.6rem 1.2rem; /* Diubah untuk style pil */
-            border-radius: 50px; /* Membuat bentuk pil */
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
             background: transparent;
             transition: all 0.4s ease;
         }
         
-        /* Menghapus garis bawah dari ::after */
         nav a::after { 
             display: none;
         }
@@ -146,7 +145,6 @@
             background: rgba(255,255,255,0.15);
         }
         
-        /* Style untuk link navigasi yang AKTIF */
         nav a.active-link {
             background: var(--pink);
             color: var(--dark);
@@ -180,6 +178,13 @@
             opacity: 0.9;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .hero-buttons a {
             display: inline-block;
             text-decoration: none;
@@ -195,6 +200,30 @@
         .hero-buttons a:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(37, 117, 252, 0.4);
+        }
+
+        /* --- STYLE KHUSUS TOMBOL VIEW CV (GRADIENT BORDER) --- */
+        .hero-buttons a.btn-secondary {
+            position: relative;
+            border: 2px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
+                              linear-gradient(45deg, var(--blue), var(--purple), #f472b6);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            backdrop-filter: blur(5px);
+            color: white;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: none; /* Reset shadow default */
+        }
+
+        .hero-buttons a.btn-secondary:hover {
+            background: linear-gradient(45deg, var(--purple), var(--blue));
+            border-color: transparent;
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            /* Efek Glow */
+            box-shadow: 0 0 20px rgba(37, 117, 252, 0.6), 0 0 40px rgba(106, 17, 203, 0.3);
         }
 
         /* 5. General Section & Card Styling */
@@ -330,7 +359,7 @@
             border: none;
         }
         
-        /* 8. Services Section */
+        /* 8. Skills Section */
         .services-grid {
             display: flex;
             flex-wrap: wrap;
@@ -429,8 +458,8 @@
         <nav>
             <a href="#hero">Home</a>
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
             <a href="#portfolio">Portfolio</a>
-            <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -439,8 +468,10 @@
         <section id="hero">
             <h1 data-aos="fade-down">Deska Rizki Pratama</h1>
             <p data-aos="fade-up" data-aos-delay="200">Hi, I'm Deska Rizki Pratama. A Chemical Engineering Graduate passionate about Process Optimization, Plant Operations, and Industrial Sustainability. Aspiring to drive efficiency and innovation as a Future Leader in the Manufacturing Industry</p>
+            
             <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
                 <a href="#portfolio">View My Work</a>
+                <a href="assets/cv/cv_deska-rizki-pratama_chemical-engineer.pdf" target="_blank" class="btn-secondary">View CV</a>
             </div>
         </section>
 
@@ -451,22 +482,71 @@
                     <div class="about-image" data-aos="fade-right" data-aos-delay="200">
                         <img src="assets/foto_profil/profil.webp" alt="Foto Profil Deska Rikzi">
                     </div>
-                    <div class="about-text" data-aos="fade-left" data-aos-delay="400">
-                       <div style="text-align: justify; color: #e4e4e4; line-height: 1.8;">
-        
-                           <p style="margin-bottom: 20px;">
-                            I am a Chemical Engineering graduate from Universitas Sumatera Utara (Dec 2025) with a strong foundation in process engineering and industrial management. My journey isn't just about formulas; it's about solving real-world problems.
-                           </p>
-
-                           <p style="margin-bottom: 20px;">
+                    
+                    <div class="about-text" data-aos="fade-left" data-aos-delay="400" style="text-align: justify;">
+                        <p style="margin-bottom: 20px;">
+                            I am a Chemical Engineering graduate from Universitas Sumatera Utara with a strong foundation in process engineering and industrial management. My journey isn't just about formulas; it's about solving real-world problems.
+                        </p>
+                        <p style="margin-bottom: 20px;">
                             During my internship at PT. Pacific Medan Industri, I gained hands-on experience in refinery operations, specifically analyzing steam and boiler fuel efficiency to optimize production costs. My analytical thinking was further sharpened through winning 3 National Research Grants (PKM), where I led projects focusing on sustainable innovation like edible coatings and waste utilization.
-                            </p>
-
-                            <p style="margin-bottom: 0px;">
+                        </p>
+                        <p style="margin-bottom: 0;">
                             Beyond technical skills, I believe a great Management Trainee must be an effective communicator. My background as a Laboratory Coordinator and Head of Department at HIMALA USU taught me how to lead diverse teams and manage operational targets.
-                            </p>
-                           </div>
+                        </p>
                     </div>
+
+                </div>
+            </section>
+
+            <section id="skills" class="section" data-aos="fade-up">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="services-grid">
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Process Optimization</h3>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-hard-hat"></i>
+                        <h3>HSE Awareness</h3>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>Team Leadership</h3>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Data Analysis</h3>
+                    </div>
+
+                     <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                        <i class="fas fa-pen-to-square"></i>
+                        <h3>Technical & Academic Writing</h3>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-drafting-compass"></i>
+                        <h3>Logo Design</h3>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Social Media</h3>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-file-image"></i>
+                        <h3>Poster & Flyer</h3>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="450">
+                        <i class="fas fa-file-powerpoint"></i>
+                        <h3>Presentation Design</h3>
+                    </div>
+
                 </div>
             </section>
 
@@ -504,7 +584,6 @@
                         <a href="assets/konten_medsos/story-pkm-2.webp" data-lightbox="portfolio" data-title="Instagram Story: PKM Program v2" class="portfolio-item">
                             <img src="assets/konten_medsos/story-pkm-2.webp" alt="Social Media Content">
                             <p>IG Story v2 PKM Team @Ecochitoshield</p>
-                        </a></p>
                         </a>
                     </div>
                 </div>
@@ -577,32 +656,6 @@
 
             </section>
 
-            <section id="services" class="section" data-aos="fade-up">
-                <h2 class="section-title">Services</h2>
-                <div class="services-grid">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="50">
-                        <i class="fas fa-drafting-compass"></i>
-                        <h3>Logo Design</h3>
-                    </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-bullhorn"></i>
-                        <h3>Social Media</h3>
-                    </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="150">
-                        <i class="fas fa-file-image"></i>
-                        <h3>Poster & Flyer</h3>
-                    </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fas fa-file-powerpoint"></i>
-                        <h3>Presentation</h3>
-                    </div>
-                     <div class="service-card" data-aos="fade-up" data-aos-delay="250">
-                        <i class="fas fa-pencil-alt"></i>
-                        <h3>Academic Writer</h3>
-                    </div>
-                </div>
-            </section>
-
             <section id="contact" class="section" data-aos="fade-up">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-links">
@@ -614,6 +667,9 @@
                     </a>
                     <a href="https://wa.me/6281370562128" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="300">
                         <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://www.linkedin.com/in/deskriz" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
                 </div>
             </section>
@@ -650,7 +706,7 @@
             }
         });
 
-        // --- SCRIPT BARU UNTUK NAVIGASI AKTIF SAAT SCROLL (SCROLLSPY) ---
+        // --- SCRIPT UNTUK NAVIGASI AKTIF SAAT SCROLL (SCROLLSPY) ---
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('nav a');
 
